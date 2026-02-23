@@ -1,3 +1,25 @@
+"""
+CUDA_BISIBLE_DEVICES=0,1 \
+torchrun \
+  --nnodes=1 \
+  --nproc_per_node=2 \
+  --node_rank=0 \
+  --rdzv_id=123 \
+  --rdzv_backend=c10d \
+  --rdzv_endpoint=127.0.0.1:29500 \
+ddp.py
+
+CUDA_BISIBLE_DEVICES=2,3 \
+torchrun \
+  --nnodes=1 \
+  --nproc_per_node=2 \
+  --node_rank=1 \
+  --rdzv_id=123 \
+  --rdzv_backend=c10d \
+  --rdzv_endpoint=127.0.0.1:29500 \
+ddp.py
+"""
+
 import os
 from transformers import BertTokenizer, BertForSequenceClassification
 
